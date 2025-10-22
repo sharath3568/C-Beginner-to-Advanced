@@ -112,14 +112,15 @@ namespace C__Programs_Basic_to_Advanced
                     string? input = Console.ReadLine();
                     if (!string.IsNullOrWhiteSpace(input))
                     {
-                        if (input.ToLower() == "yes")
+                        if (string.Equals(input, "Yes", StringComparison.OrdinalIgnoreCase))
                         {
                             Console.WriteLine("Select the operation you want to perform");
                             Console.WriteLine("1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Modulus");
                         }
-                        else if (input.ToLower() == "no")
+                        else if (string.Equals(input, "No", StringComparison.OrdinalIgnoreCase))
                         {
                             valid = false;
+                            Console.WriteLine("Exiting Program!");
                             break;
                         }
                         else
