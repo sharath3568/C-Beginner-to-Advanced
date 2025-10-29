@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace C__Programs_Basic_to_Advanced
+namespace C__Programs_Basic_to_Advanced.Arrays
 {
     internal class MinMaxElement
     {
-        public static void Main(String[] args)
+        public static void Main(string[] args)
         {
             bool isRepeat = true;
             while (isRepeat)
@@ -86,7 +86,7 @@ namespace C__Programs_Basic_to_Advanced
             Console.WriteLine("Select the operation you want to perform\n \n1.Maximum Element in array \n2.Minimum Element in array\n");
             while (true)
             {
-                if (int.TryParse(Console.ReadLine(), out int temp) && (temp >= 1 && temp <= 2))
+                if (int.TryParse(Console.ReadLine(), out int temp) && temp >= 1 && temp <= 2)
                 {
                     return temp;
                 }

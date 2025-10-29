@@ -5,11 +5,11 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C__Programs_Basic_to_Advanced
+namespace C__Programs_Basic_to_Advanced.Arrays
 {
     internal class IsPrime
     {
-        public static void Main(String[] args)
+        public static void Main(string[] args)
         {
             IsPrime obj = new IsPrime();
             bool isRepeat = true;
@@ -44,7 +44,7 @@ namespace C__Programs_Basic_to_Advanced
             {
                 return false;
             }
-            for(int i = 2; i <= (Math.Sqrt(value)); i++)
+            for(int i = 2; i <= Math.Sqrt(value); i++)
             {
                 if( value % i == 0)
                 {
