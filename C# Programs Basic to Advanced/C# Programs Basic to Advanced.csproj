@@ -6,7 +6,7 @@
     <RootNamespace>C__Programs_Basic_to_Advanced</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>C__Programs_Basic_to_Advanced.ReverseNumber</StartupObject>
+    <StartupObject>C__Programs_Basic_to_Advanced.MaximumElement</StartupObject>
   </PropertyGroup>
 
 </Project>
