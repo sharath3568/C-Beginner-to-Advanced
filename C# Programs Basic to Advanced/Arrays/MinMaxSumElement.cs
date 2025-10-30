@@ -2,7 +2,7 @@
 
 namespace C__Programs_Basic_to_Advanced.Arrays
 {
-    internal class MinMaxElement
+    internal class MinMaxSumElement
     {
         public static void Main(string[] args)
         {
@@ -18,15 +18,20 @@ namespace C__Programs_Basic_to_Advanced.Arrays
                     number[i] = CheckValid("value");
                 }
                 int operation = CheckOperation();
-                if(operation == 1)
+                switch (operation)
                 {
-                    int maximum = MaxElement(number);
-                    Console.WriteLine($"Maximum element in the array is {maximum}");
-                }
-                else
-                {
-                    int minimum = MinElement(number);
-                    Console.WriteLine($"Minimum element in the array is {minimum}");
+                    case 1:
+                        int maximum = MaxElement(number);
+                        Console.WriteLine($"Maximum element in the array is {maximum}");
+                        break;
+                    case 2:
+                        int minimum = MinElement(number);
+                        Console.WriteLine($"Minimum element in the array is {minimum}");
+                        break;
+                    case 3:
+                        int sum = SumElement(number);
+                        Console.WriteLine($"Sum of elements in the array is {sum}");
+                        break;
                 }
                 Console.WriteLine("\n");
                 isRepeat = CheckRepeat();
@@ -83,10 +88,10 @@ namespace C__Programs_Basic_to_Advanced.Arrays
 
         public static int CheckOperation()
         {
-            Console.WriteLine("Select the operation you want to perform\n \n1.Maximum Element in array \n2.Minimum Element in array\n");
+            Console.WriteLine("Select the operation you want to perform\n \n1.Maximum Element in array \n2.Minimum Element in array\n3.Sum of Elements");
             while (true)
             {
-                if (int.TryParse(Console.ReadLine(), out int temp) && temp >= 1 && temp <= 2)
+                if (int.TryParse(Console.ReadLine(), out int temp) && temp >= 1 && temp <= 3)
                 {
                     return temp;
                 }
@@ -121,6 +126,16 @@ namespace C__Programs_Basic_to_Advanced.Arrays
                 }
             }
             return maxElement;
+        }
+
+        public static int SumElement(params int[] numbers)
+        {
+            int sum = 0;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                sum = sum + numbers[i];
+            }
+            return sum;
         }
     }
 }
