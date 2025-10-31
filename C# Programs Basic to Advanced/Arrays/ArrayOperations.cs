@@ -21,7 +21,7 @@ namespace C__Programs_Basic_to_Advanced.Arrays
             bool isRepeat = true;
             while (isRepeat)
             {
-                Console.WriteLine("Enter the size of an array");
+                Console.Write("Enter the size of an array");
                 int n = Convert.ToInt32(CheckValid("size"));
                 float[] numbers = new float[n];
                 Console.WriteLine("Enter the list of elements");
@@ -39,8 +39,10 @@ namespace C__Programs_Basic_to_Advanced.Arrays
                         PositiveNegative(numbers);
                         break;
                     case 3:
+                        Duplicate(numbers);
                         break;
                     case 4:
+                        Sort(numbers);
                         break;
                 }
                 isRepeat = CheckRepeat();
@@ -120,6 +122,51 @@ namespace C__Programs_Basic_to_Advanced.Arrays
             int negativeCount = (Array.FindAll(numbers, n => n < 0)).Length;
             Console.WriteLine($"Count of Positive Numbers : {positiveCount}");
             Console.WriteLine($"Count of Negative Numbers : {negativeCount}");
+        }
+
+        public static void Duplicate(params float[] numbers)
+        {
+            bool hasDuplicate = true;
+            Console.WriteLine("Duplicate values in the given array are : ");
+            for(int i = 0; i < numbers.Length; i++)
+            {
+                for(int j = i + 1; j < numbers.Length; j++)
+                {
+                    if (numbers[i] == numbers[j])
+                    {
+                        Console.Write($"{numbers[i]} ");
+                        hasDuplicate = true;
+                        break;
+                    }
+                }
+            }
+            if (!hasDuplicate)
+            {
+                Console.WriteLine("Duplicate not found");
+            }
+        }
+
+        public static void Sort(params float[] numbers)
+        {
+            float temp = 0;
+            for(int i = 0; i < numbers.Length - 1; i++)
+            {
+                for(int j = 0; j < numbers.Length - i - 1; j++)
+                {
+                    if (numbers[j] > numbers[i])
+                    {
+                        temp = numbers[j];
+                        numbers[j] = numbers[j + 1];
+                        numbers[j + 1] = temp;
+                    }
+                }
+            }
+
+            Console.WriteLine("Array after sorting in ascending order : ");
+            foreach(var i in numbers)
+            {
+                Console.WriteLine(i + " ");
+            }
         }
     }
 }
