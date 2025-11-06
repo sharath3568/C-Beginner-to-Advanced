@@ -50,6 +50,7 @@ namespace C__Programs_Basic_to_Advanced.Strings
                 }
                 else if (string.Equals(response, "No", StringComparison.OrdinalIgnoreCase))
                 {
+                    Console.WriteLine("Exiting Program............");
                     return false;
                 }
                 else
@@ -68,13 +69,16 @@ namespace C__Programs_Basic_to_Advanced.Strings
                 char[] charArray = input.ToCharArray();
                 for (int i = 0; i < input.Length; i++)
                 {
-                    if (vowel.Contains(charArray[i]))
+                    if (char.IsLetter(charArray[i]))
                     {
-                        vowels++;
-                    }
-                    else
-                    {
-                        consonants++;
+                        if (vowel.Contains(charArray[i]))
+                        {
+                            vowels++;
+                        }
+                        else
+                        {
+                            consonants++;
+                        }
                     }
                 }
             }
