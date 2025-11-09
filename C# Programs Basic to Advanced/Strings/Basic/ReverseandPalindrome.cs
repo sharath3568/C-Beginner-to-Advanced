@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace C__Programs_Basic_to_Advanced.Strings
+namespace C__Programs_Basic_to_Advanced.Strings.Basic
 {
     internal class ReverseandPalindrome
     {
@@ -62,7 +62,7 @@ namespace C__Programs_Basic_to_Advanced.Strings
             {
                 string? input = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(input) || string.IsNullOrEmpty(input))
+                if (string.IsNullOrWhiteSpace(input))
                 {
                     Console.Write("Input cannot be Empty! Please try again : ");
                     continue;
