@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace C__Programs_Basic_to_Advanced.Strings
+namespace C__Programs_Basic_to_Advanced.Strings.Basic
 {
-    internal class CountVowelsConsonants
+    internal class CountCharacters
     {
-        public static void Main(String[] args)
+        public static void Main(string[] args)
         {
             bool isRepeat = true;
             while (isRepeat)
             {
-                Console.Write("Enter the string to get the count of vowels and Consonants : ");
+                Console.Write("Enter the string to count the characters : ");
                 string? input = CheckValid();
-                Count_VowelsConsonants(input);
+                int count = Count_Characters(input);
+                Console.WriteLine($"Count of Characters in given string {input} : {count}");
                 isRepeat = CheckRepeat();
             }
         }
@@ -23,17 +24,24 @@ namespace C__Programs_Basic_to_Advanced.Strings
         public static string CheckValid()
         {
             string? input;
+
             while (true)
             {
                 input = Console.ReadLine();
 
-                if (string.IsNullOrEmpty(input))
+                if (string.IsNullOrWhiteSpace(input))
                 {
                     Console.Write("Input cannot be empty! Please try again : ");
+                    continue;
+                }
+                
+                if(Regex.IsMatch(input, @"^[A-Za-z ]+$"))
+                {
+                    return input;
                 }
                 else
                 {
-                    return input;
+                    Console.Write("Invalid Input! Please try again : ");
                 }
             }
         }
@@ -50,42 +58,26 @@ namespace C__Programs_Basic_to_Advanced.Strings
                 }
                 else if (string.Equals(response, "No", StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine("Exiting Program............");
+                    Console.Write("Exiting Program..........");
+                    Console.WriteLine("\n");
                     return false;
                 }
                 else
                 {
-                    Console.Write("Invalid Input! please try again : ");
+                    Console.Write("Invalid Input! Please try again : ");
                 }
             }
         }
 
-        public static void Count_VowelsConsonants(string? input)
+        public static int Count_Characters(string? input)
         {
-            int vowels = 0, consonants = 0;
-            if (!string.IsNullOrEmpty(input)) {
-                input = input.ToLower();
-                char[] vowel = { 'a', 'e', 'i', 'o', 'u' };
+            if (!string.IsNullOrWhiteSpace(input))
+            {
                 char[] charArray = input.ToCharArray();
-                for (int i = 0; i < input.Length; i++)
-                {
-                    if (char.IsLetter(charArray[i]))
-                    {
-                        if (vowel.Contains(charArray[i]))
-                        {
-                            vowels++;
-                        }
-                        else
-                        {
-                            consonants++;
-                        }
-                    }
-                }
+                //return input.Replace(" ", "").Length;
+                return input.Count(char.IsLetter);
             }
-
-            Console.WriteLine($"Given String : {input}");
-            Console.WriteLine($"Vowel Count : {vowels}");
-            Console.WriteLine($"Consonant Count : {consonants}");
+            return 0;
         }
     }
 }
